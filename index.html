@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GRAPPLE (LUTAR) Engine - Subduing Complexity</title>
+    <!-- Load Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom Font */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fafaf9; /* Stone/Earthy background for physical effort */
+        }
+        /* Custom styles for line clamping on the cards */
+        .line-clamp-3 {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        /* Gradient for the Grapple Title */
+        .grapple-gradient {
+            background-image: linear-gradient(45deg, #9a3412, #d97706); /* Rust Orange to Amber */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        /* Custom style for active option selection */
+        .option-active {
+            box-shadow: 0 0 0 3px #f97316; /* Orange ring effect */
+            background-color: #fff7ed !important;
+            border-color: #fdba74 !important;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- Header -->
+    <header id="app-header" class="bg-stone-900 shadow-xl p-4 sticky top-0 z-10">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 id="home-link-header" class="text-2xl font-extrabold text-white tracking-widest cursor-pointer hover:text-orange-400 transition duration-300">
+                GRAPPLE (LUTAR) Engine <span class="text-orange-400">🤼</span>
+            </h1>
+            <nav class="space-x-4">
+                <button id="home-link-nav" class="text-white font-medium hover:text-orange-400 transition duration-300 focus:outline-none">
+                    Home / Modules
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main id="app-content" class="container mx-auto flex-grow p-4 sm:p-6 lg:p-8">
+        <!-- Content will be injected here by JavaScript -->
+        <div class="text-center p-12 text-gray-500">Initializing GRAPPLE (LUTAR) Engine...</div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-stone-800 p-4 mt-12">
+        <div class="container mx-auto text-center text-white text-sm">
+            (2025 @ GRAPPLE (LUTAR) Engine by Daby) - Mastering the Close-Quarters Struggle.
+        </div>
+    </footer>
+
+    <script>
+        // --- 1. DATA STRUCTURES (Focused on GRAPPLING / LUTAR / AGARRAR O PROBLEMA) ---
+
+        const lessons = [
+            {
+                id: 1,
+                role: 'Sovereign Nation',
+                level: 'Executivo',
+                title: 'Grappling with Debt: The Fiscal Anaconda',
+                description: 'This module simulates the existential **grapple** (*a luta de morte*) of the United States with its massive national debt. It focuses on the political struggle to balance short-term spending with long-term solvency.',
+                kpis: [
+                    { name: 'Grapple Metric: Interest Rate Tolerance', description: 'Measures the capacity of the budget to absorb rising interest payments without forcing deep cuts elsewhere. This is the **anaconda’s squeeze**.' },
+                    { name: 'Grapple Metric: Political Consensus Pin', description: 'Tracks the ability of leaders to secure bipartisan agreement on painful fiscal austerity measures, often impossible (*um pino político*).' },
+                ],
+                scenario: {
+                    title: 'The Fiscal Cliff Wrestle: The Treasury Secretary’s Takedown',
+                    steps: [
+                        { id: 1, title: 'Closing the Distance (The Escalation)', content: 'The debt ceiling approaches, forcing the Treasury Secretary to **grapple** (*encarar*) the immediate threat of default while navigating hyper-partisan brinkmanship. The pressure is immense.', imageAlt: 'Close up of the US Debt Clock' },
+                        { id: 2, title: 'Establishing the Grip (The Data Lock)', content: 'Economists produce real-time models of spending vs. revenue, providing the only objective grip on the debate. The Secretary must use this data to force unwilling politicians to acknowledge the reality of the crisis.', imageAlt: 'Complex economic chart showing exponential debt growth' },
+                        { id: 3, title: 'The Takedown (The Grand Bargain)', content: 'A painful, forced compromise is struck: minor tax increases coupled with minor entitlement spending caps. It\'s an ugly **wrestle** (*a briga feia*) where neither side is happy, but a catastrophic default is averted.', imageAlt: 'Two politicians reluctantly shaking hands' },
+                        { id: 4, title: 'Submission (The Temporary Solvency)', content: 'The debt ceiling is raised, but the fundamental spending patterns are unchanged. The Anaconda has been momentarily subdued, but it is not dead. The nation **grappled** (*venceu a luta*) for a few months of peace.', imageAlt: 'A cracked piggy bank' },
+                    ],
+                },
+                exercise: [
+                    {
+                        id: 1,
+                        text: "In the context of the US debt **grapple** (*luta*), what does 'The Anaconda’s Squeeze' primarily represent?",
+                        options: ["Rising GDP from aggressive investment (Economic Growth)", "The increasing political power of the Federal Reserve (Monetary Policy)", "The unavoidable, growing portion of the budget consumed by interest payments (Fiscal Pressure / 'O Aperto Financeiro')", "A new foreign trade agreement (International Relations)"],
+                        correctAnswerIndex: 2,
+                        explanation: "The 'Anaconda’s Squeeze' is the metaphor for interest payments. As the debt grows, the cost to service it restricts (*sufoca*) the government's ability to fund other essential programs.",
+                    },
+                ],
+            },
+            {
+                id: 2,
+                role: 'Global Health Authority',
+                level: 'Sênior',
+                title: 'Grappling with Pandemic: The Unseen Adversary',
+                description: 'Analyze the complex, worldwide **grapple** (*a luta sanitária*) against an invisible and rapidly evolving disease like COVID-19. It focuses on the struggle between science, public policy, and global logistics.',
+                kpis: [
+                    { name: 'Grapple Metric: R-Naught Reduction Rate', description: 'Measures the speed at which public health policies and behavioral changes reduce the virus\'s reproduction rate (*frear a contaminação*).' },
+                    { name: 'Grapple Metric: Vaccination Supply Chain Pin', description: 'Tracks the successful and timely delivery of vaccines globally, ensuring the logistical system does not break under pressure (*o pino da logística*).' },
+                ],
+                scenario: {
+                    title: 'The Contagion Clinch: The Epidemiologist’s Defense',
+                    steps: [
+                        { id: 1, title: 'The Standoff (Initial Detection)', content: 'An epidemiologist identifies a novel pathogen. The world is in a clinch (*travada*) with uncertainty. Rapid, decisive action is needed before exponential growth takes hold.', imageAlt: 'Microscopic view of a virus particle' },
+                        { id: 2, title: 'Changing Levels (The Lockdown Takedown)', content: 'Governments enact severe restrictions. This is the **takedown** (*a derrubada*) of normal life—a drastic, short-term measure to buy time for scientific research and health system preparation.', imageAlt: 'Empty city street during a lockdown' },
+                        { id: 3, title: 'The Scramble (Vaccine Development & Distribution)', content: 'Scientists engage in an intense **grapple** (*briga contra o tempo*) to develop treatments and vaccines. Simultaneously, logistics chains must scramble to distribute billions of doses worldwide.', imageAlt: 'Hands in lab coats working on test tubes' },
+                        { id: 4, title: 'Control (Endemic Management)', content: 'The initial panic subsides; the virus is now manageable but persistent. The world **grappled** (*lutou*) through the acute crisis and established a new, long-term pattern of co-existence.', imageAlt: 'A hospital worker smiling through a mask' },
+                    ],
+                },
+                exercise: [
+                    {
+                        id: 1,
+                        text: "In the COVID-19 **grapple** (*luta*), what was the main function of the initial widespread lockdowns?",
+                        options: ["To permanently eradicate the virus (Unrealistic Goal)", "To punish citizens for poor health (Misguided Policy)", "To buy time for the healthcare system to prepare and science to react (Strategic Delay / 'Comprar Tempo')", "To test government compliance (Authoritarianism)"],
+                        correctAnswerIndex: 2,
+                        explanation: "The lockdown was a desperate move to slow the spread (*frear a doença*), giving overwhelmed hospitals and slow-moving scientific research time to adapt and get a 'grip' on the threat.",
+                    },
+                ],
+            },
+            {
+                id: 3,
+                role: 'Brazilian State Security',
+                level: 'Gerente',
+                title: 'Grappling with Factions: CV and PCC - The Urban War',
+                description: 'Explore the intense, ground-level **grapple** (*o combate policial*) of Brazilian state security forces against organized crime factions like Comando Vermelho (CV) and Primeiro Comando da Capital (PCC).',
+                kpis: [
+                    { name: 'Grapple Metric: Financial Chokehold', description: 'Measures the success rate of freezing and seizing illegal assets, cutting the oxygen (cash flow) of the criminal network (*apertar o pescoço financeiro*).' },
+                    { name: 'Grapple Metric: Territory Reclamation Leverage', description: 'Tracks the sustained ability to push back and hold territory previously dominated by the factions, stabilizing marginalized communities (*retomar o controle*).' },
+                ],
+                scenario: {
+                    title: 'The Urban Takedown: The Police Chief’s Intervention',
+                    steps: [
+                        { id: 1, title: 'The Face-Off (Intelligence Gathering)', content: 'The security chief identifies a major faction hub. Before the entry, they must **grapple** (*intervir*) with the complexity of the network, gathering intelligence to minimize civilian harm.', imageAlt: 'Map of a complex network diagram' },
+                        { id: 2, title: 'Separating the Combatants (The Raid)', content: 'Tactical units enter the area. They do not fight everyone; they target the leadership and financial command. They separate the people from the system (*separar o comando da tropa*).', imageAlt: 'Police shield and badge' },
+                        { id: 3, title: 'Applying Pressure (Legal Pin)', content: 'The legal system applies pressure (*aperta o cerco*) through asset freezes and high-profile arrests. This makes the territory too costly and risky for the faction to hold.', imageAlt: 'Judge’s gavel hitting a block' },
+                        { id: 4, title: 'Control (Sustained Presence)', content: 'The area is stabilized. The immediate conflict is won, but the faction’s ideology remains. It was an exhausting **fight** (*uma batalha dura*), requiring a sustained civic and police presence to maintain control.', imageAlt: 'Community patrol in a safe neighborhood' },
+                    ],
+                },
+                exercise: [
+                    {
+                        id: 1,
+                        text: "Why is attacking the financial assets ('Financial Chokehold') an essential part of the **grapple** (*luta*) against the CV and PCC?",
+                        options: ["To make them personally poorer (Vindictiveness)", "Because their structure relies heavily on cash flow from illegal activities (Systemic Weakness / 'Cortar a Seiva')", "To seize cars and homes for the police (Corruption)", "It has no effect (Ineffectiveness)"],
+                        correctAnswerIndex: 1,
+                        explanation: "You **grapple** (*luta*) to cut off the lifeblood. Factions like PCC and CV are financially driven; attacking their funds is the most effective way to dismantle their operational power structure.",
+                    },
+                ],
+            },
+            {
+                id: 4,
+                role: 'Climate Activist Coalition',
+                level: 'Líder Público',
+                title: 'Grappling with Policy Inertia: The Climate Clock',
+                description: 'Confront the systemic **grapple** (*o desafio político-climático*) against institutional resistance and public apathy regarding rapid climate action. It is a fight to force the hand of global leaders.',
+                kpis: [
+                    { name: 'Grapple Metric: Fossil Fuel Funding Severance', description: 'Measures the rate at which major financial institutions stop funding high-emission projects. This is putting the source in a **chokehold** (*estrangular o investimento*).' },
+                    { name: 'Grapple Metric: Regulatory Momentum Lock', description: 'Tracks the speed and durability of new, binding international climate agreements, preventing them from being undone by subsequent administrations (*travar o processo*).' },
+                ],
+                scenario: {
+                    title: 'The Decarbonization Scramble: The Coalition’s Breakthrough',
+                    steps: [
+                        { id: 1, title: 'The Wild Growth (Unchecked Emissions)', content: 'Global emissions continue to rise. The coalition must **grapple** (*domar*) the political system, which is addicted to short-term economic gains over long-term survival.', imageAlt: 'Graphic of rising global temperatures' },
+                        { id: 2, title: 'Tightening the Reins (Mass Mobilization)', content: 'They use protests, legal challenges, and public awareness campaigns. They apply a constant **control hold** (*pressão constante*) to the political class, making inaction impossible.', imageAlt: 'Large group of people protesting with banners' },
+                        { id: 3, title: 'Wrestling the Budget (Carbon Tax Push)', content: 'The coalition forces a debate on internalizing climate costs. They **grapple** (*bate de frente*) with industry lobbyists to introduce a meaningful carbon tax, changing the economic incentives.', imageAlt: 'Scale balancing money and a tree' },
+                        { id: 4, title: 'Controlled Power (Policy Integration)', content: 'New regulations are passed. The economy is now shifting. The coalition **grappled** (*liderou a luta*) and achieved a structural shift, ensuring sustainability is built into future plans.', imageAlt: 'Solar panels and wind turbines in a landscape' },
+                    ],
+                },
+                exercise: [
+                    {
+                        id: 1,
+                        text: "In the climate **grapple** (*luta*), why is 'putting the source in a chokehold' more effective than simply educating the public?",
+                        options: ["Because people are too ignorant to change (Apathy)", "Because political and financial institutions control the necessary resources for change (Systemic Leverage / 'O Poder Real')", "Because education is too expensive (Cost)", "Because public opinion is always wrong (Cynicism)"],
+                        correctAnswerIndex: 1,
+                        explanation: "You **grapple** (*luta*) where the power lies. While public education is vital, systemic change requires severing the financial and regulatory structures that enable emissions, putting the entire industrial process in a 'chokehold.'",
+                    },
+                ],
+            },
+            // Lesson 5 placeholder for future expansion, keeping structure consistent
+            {
+                id: 5,
+                role: 'Historical Power',
+                level: 'Estratégico',
+                title: 'Grappling with Existential Threats: The Cold War',
+                description: 'Placeholder for a future module analyzing historical, high-stakes **grapples** (*conflitos de potências*) between global blocs.',
+                kpis: [
+                    { name: 'Grapple Metric: Nuclear Deterrence Pin', description: 'Measures the success of preventing direct conflict through mutually assured destruction (*evitar a guerra total*).' },
+                    { name: 'Grapple Metric: Proxy War Containment', description: 'Tracks the ability to manage and prevent regional conflicts from escalating into full-scale global confrontations (*conter a escalada*).' },
+                ],
+                scenario: {
+                    title: 'The Brinkmanship Game: Managing the Cuban Missile Crisis',
+                    steps: [
+                        { id: 1, title: 'The Resistance', content: 'A direct confrontation between superpowers. Every move is a risk. The leaders must **grapple** (*ir para o embate*) with their own fear and the other side\'s resolve.', imageAlt: 'Iconic image of world leaders in a crisis room' },
+                        { id: 2, title: 'The Full Nelson', content: 'Secret negotiations are used to apply diplomatic pressure. They use leverage (*faz pressão*) that is hidden from the public to force a compromise.', imageAlt: 'Image of a secret diplomatic document' },
+                        { id: 3, title: 'The Reversal', content: 'A carefully orchestrated public demand forces the other side to back down, allowing both sides to save face and de-escalate (*uma saída honrosa*).', imageAlt: 'Judo throw leading to a safe landing' },
+                        { id: 4, title: 'Victory (Avoided)', content: 'The crisis is averted. It was not a win, but the avoidance of total collapse. They **grappled** (*lutaram*) to a draw against annihilation.', imageAlt: 'A cracked but intact globe' },
+                    ],
+                },
+                exercise: [
+                    {
+                        id: 1,
+                        text: "In the context of the Cold War **grapple** (*conflito*), what does 'Nuclear Deterrence' primarily seek to achieve?",
+                        options: ["To win a nuclear war quickly (Fatal Flaw)", "To ensure both sides are too afraid of the cost to start fighting (Stalemate / 'Empate de Medo')", "To encourage the opponent to disarm unilaterally (Naive Strategy)", "To allow proxy wars to run wild (Destructive Policy)"],
+                        correctAnswerIndex: 1,
+                        explanation: "Deterrence is the ultimate **grapple**. It uses the threat of mutual destruction to maintain a dangerous, yet stable, stalemate (*um empate forçado*), forcing rivals to fight using political and economic means instead of military ones.",
+                    },
+                ],
+            },
+        ];
+
+        // --- 2. GLOBAL STATE AND NAVIGATION ---
+        const AppState = {
+            currentPageId: null, // null for Home, ID for Lesson Detail
+            scenarioSteps: {} // Stores the current step for each lesson ID
+        };
+
+        const appContent = document.getElementById('app-content');
+
+        // --- 3. RENDERING FUNCTIONS ---
+
+        const renderIdiomDefinition = () => {
+            return `
+                <section class="bg-orange-50 p-6 rounded-xl shadow-lg border-l-4 border-orange-600 mb-8">
+                    <div class="flex flex-col md:flex-row items-start md:items-center gap-6">
+                        <div class="text-5xl bg-white p-4 rounded-full shadow-sm">🤼</div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-stone-800 mb-2">
+                                Idiom Deep Dive: "To Grapple With"
+                            </h3>
+                            <p class="text-gray-700 text-lg mb-2">
+                                <strong>Meaning:</strong> To engage in a close fight or struggle without weapons; to try hard to solve a difficult problem.
+                            </p>
+                            <p class="text-gray-600 italic mb-4 text-sm">
+                                Origin: Wrestling. It implies physically holding, seizing, or struggling with an opponent. In leadership, it means you are not ignoring the problem; you are getting your hands dirty to fix it.
+                            </p>
+                            
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+                                <div class="bg-white p-3 rounded border border-orange-200 hover:shadow-md transition-shadow">
+                                    <span class="block text-xs font-bold text-orange-600 uppercase">Portuguese Equivalent 1</span>
+                                    <span class="text-lg font-semibold text-stone-800">Entracar-se / Agarrar o problema</span>
+                                    <span class="block text-sm text-gray-500">To physically lock horns with a problem; to tackle it aggressively.</span>
+                                </div>
+                                <div class="bg-white p-3 rounded border border-orange-200 hover:shadow-md transition-shadow">
+                                    <span class="block text-xs font-bold text-orange-600 uppercase">Portuguese Equivalent 2</span>
+                                    <span class="text-lg font-semibold text-stone-800">Descascar o Abacaxi</span>
+                                    <span class="block text-sm text-gray-500">"Peel the pineapple" - To handle a prickly, difficult, and messy situation.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            `;
+        };
+
+        const renderHowToUse = () => {
+             return `
+                <section class="bg-stone-200 p-6 rounded-xl shadow-inner border border-stone-400 mt-8">
+                    <h3 class="text-3xl font-extrabold text-stone-800 mb-4 flex items-center">
+                        <span class="mr-3 text-4xl">🥊</span> Applying the GRAPPLE (LUTAR) Strategy
+                    </h3>
+                    <p class="text-lg text-stone-700 mb-6 font-semibold">
+                        Success requires friction. This engine teaches you to **Grapple** (*Lutar / Entracar-se*)—to actively engage with difficulty until you subdue it.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="bg-white p-4 rounded-lg shadow-md border-t-4 border-orange-600">
+                            <h4 class="font-bold text-xl text-stone-800 mb-2">1. Close the Distance (Encurtar a Distância)</h4>
+                            <p class="text-gray-600 text-sm">Don't run from the problem. Get close to it. Understand the messy details (*meter a mão na massa*).</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-md border-t-4 border-amber-500">
+                            <h4 class="font-bold text-xl text-amber-800 mb-2">2. Establish a Grip (Agarrar Firme)</h4>
+                            <p class="text-gray-600 text-sm">Use the **Grapple Metrics** to get a hold on the chaos. You can't throw what you can't hold.</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-md border-t-4 border-red-600">
+                            <h4 class="font-bold text-xl text-red-800 mb-2">3. Force the Takedown (Derrubar)</h4>
+                            <p class="text-gray-600 text-sm">Walk through the scenarios to see how to wrestle the problem into submission (*dominar a situação*).</p>
+                        </div>
+                    </div>
+                </section>
+            `;
+        }
+
+        const renderHome = () => {
+            const lessonCards = lessons.map(lesson => {
+                let borderColor = 'border-stone-500';
+                let badgeBg = 'bg-stone-300';
+                let badgeText = 'text-stone-800';
+
+                if (lesson.level === 'Executivo' || lesson.level === 'Estratégico') {
+                    borderColor = 'border-red-600';
+                    badgeBg = 'bg-red-100';
+                    badgeText = 'text-red-800';
+                } else if (lesson.level === 'Gerente') {
+                    borderColor = 'border-amber-500';
+                    badgeBg = 'bg-amber-100';
+                    badgeText = 'text-amber-800';
+                } else if (lesson.level === 'Sênior') {
+                    borderColor = 'border-orange-500';
+                    badgeBg = 'bg-orange-100';
+                    badgeText = 'text-orange-800';
+                }
+
+                return `
+                    <div data-id="${lesson.id}" class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-1 border-t-4 ${borderColor} cursor-pointer lesson-card">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-gray-900">${lesson.role}</h3>
+                            <span class="px-3 py-1 text-xs font-semibold rounded-full shadow-sm ${badgeBg} ${badgeText}">
+                                ${lesson.level}
+                            </span>
+                        </div>
+                        <h4 class="text-lg font-medium text-gray-700 mb-3">${lesson.title}</h4>
+                        <p class="text-sm text-gray-600 mb-4 line-clamp-3">${lesson.description}</p>
+                        <div class="text-xs font-semibold text-stone-700 flex items-center mt-2">
+                            Grapple with this Challenge (*Encarar esse Desafio*) &rarr;
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            appContent.innerHTML = `
+                <div class="space-y-8">
+                    <header class="text-center py-8 bg-white rounded-xl shadow-md border-b-4 border-stone-600">
+                        <h2 class="text-5xl font-black mb-2 grapple-gradient">
+                            GRAPPLE (LUTAR) Engine 🤼
+                        </h2>
+                        <p class="text-xl text-gray-600">
+                            Strategies for the close-quarters struggle against professional complexity.
+                        </p>
+                    </header>
+
+                    ${renderIdiomDefinition()}
+                    ${renderHowToUse()}
+                    
+                    <h3 class="text-3xl font-bold text-gray-700 border-b pb-2 mt-12">Select an Opponent to Grapple (*Escolha a Luta*)</h3>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        ${lessonCards}
+                    </div>
+                </div>
+            `;
+
+            document.querySelectorAll('.lesson-card').forEach(card => {
+                card.addEventListener('click', (e) => {
+                    const id = parseInt(card.getAttribute('data-id'));
+                    navigateTo(id);
+                });
+            });
+        };
+
+        const renderLessonDetail = (lesson) => {
+            const kpiList = lesson.kpis.map((kpi, index) => `
+                <div key="${index}" class="p-4 border border-stone-300 rounded-lg bg-white shadow-sm">
+                    <p class="font-semibold text-lg text-gray-900 flex items-center">
+                        <span class="text-orange-600 mr-2 text-2xl">👊</span> ${kpi.name}
+                    </p>
+                    <p class="text-sm text-gray-600 mt-1">${kpi.description}</p>
+                </div>
+            `).join('');
+
+            appContent.innerHTML = `
+                <div class="space-y-10">
+                    <button id="back-to-list-btn" class="text-stone-700 hover:text-stone-900 transition duration-200 flex items-center mb-6">
+                        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                        Back to the Gym
+                    </button>
+                    
+                    <header class="text-center py-6 bg-stone-800 text-white rounded-xl shadow-xl">
+                        <p class="text-sm font-light uppercase opacity-80">${lesson.role} | Level ${lesson.level}</p>
+                        <h2 class="text-3xl font-black mt-1 mb-2">${lesson.title}</h2>
+                        <p class="text-lg font-medium opacity-90 mx-auto max-w-3xl">
+                            ${lesson.description}
+                        </p>
+                    </header>
+
+                    <div class="bg-white p-6 rounded-xl shadow-xl border-t-4 border-orange-500">
+                        <h3 class="text-2xl font-bold text-gray-700 mb-4">Grapple (*Luta*) Metrics</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                            ${kpiList}
+                        </div>
+                    </div>
+
+                    <div id="scenario-container"></div>
+                    <div id="exercise-container"></div>
+                </div>
+            `;
+
+            document.getElementById('back-to-list-btn').addEventListener('click', () => navigateTo(null));
+
+            renderScenarioStepper(lesson);
+            renderExercise(lesson);
+        };
+
+        const renderScenarioStepper = (lesson) => {
+            const container = document.getElementById('scenario-container');
+            const lessonId = lesson.id;
+            
+            if (AppState.scenarioSteps[lessonId] === undefined) {
+                AppState.scenarioSteps[lessonId] = 0;
+            }
+            let currentStep = AppState.scenarioSteps[lessonId];
+            const totalSteps = lesson.scenario.steps.length;
+            const currentStepData = lesson.scenario.steps[currentStep];
+            const progress = ((currentStep + 1) / totalSteps) * 100;
+
+            container.innerHTML = `
+                <div class="bg-white p-6 rounded-xl shadow-xl border border-gray-200">
+                    <h3 class="text-2xl font-bold mb-4 text-gray-700">The Fight Breakdown: ${lesson.scenario.title}</h3>
+                    <p class="text-sm text-gray-500 italic mb-4">Step-by-step domination (*passo a passo da luta*).</p>
+                    
+                    <div class="mb-6">
+                        <div class="h-2 bg-gray-200 rounded-full">
+                            <div class="h-2 bg-orange-600 rounded-full transition-all duration-500" style="width: ${progress}%"></div>
+                        </div>
+                        <p class="text-right text-sm text-gray-600 mt-1">Phase ${currentStep + 1} of ${totalSteps}</p>
+                    </div>
+                    
+                    <div class="p-4 bg-stone-100 border-l-4 border-stone-600 rounded-lg mb-6">
+                        <h4 class="text-xl font-bold mb-3 text-gray-800">${currentStepData.title}</h4>
+                        <p class="text-gray-700 whitespace-pre-line leading-relaxed">${currentStepData.content}</p>
+                    </div>
+                    
+                    <div class="flex justify-between">
+                        <button id="prev-step-btn" 
+                            class="px-4 py-2 rounded-full font-medium transition duration-300 shadow-md text-sm ${currentStep === 0 ? 'bg-gray-300 text-gray-500 cursor-not-allowed' : 'bg-stone-700 text-white hover:bg-stone-800'}"
+                            ${currentStep === 0 ? 'disabled' : ''}>
+                            &larr; Previous
+                        </button>
+                        <button id="next-step-btn" 
+                            class="px-4 py-2 rounded-full font-medium transition duration-300 shadow-md text-sm ${currentStep === totalSteps - 1 ? 'bg-orange-500 text-white cursor-not-allowed' : 'bg-orange-600 text-white hover:bg-orange-700'}"
+                            ${currentStep === totalSteps - 1 ? 'Problem Subdued!' : 'Next Phase \u2192'}
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('prev-step-btn').addEventListener('click', () => {
+                AppState.scenarioSteps[lessonId] = Math.max(currentStep - 1, 0);
+                renderScenarioStepper(lesson);
+            });
+            document.getElementById('next-step-btn').addEventListener('click', () => {
+                AppState.scenarioSteps[lessonId] = Math.min(currentStep + 1, totalSteps - 1);
+                renderScenarioStepper(lesson);
+            });
+        };
+
+        const renderExercise = (lesson) => {
+            const container = document.getElementById('exercise-container');
+            const lessonId = lesson.id;
+            const questions = lesson.exercise;
+
+            if (!AppState.exerciseState) AppState.exerciseState = {};
+            if (!AppState.exerciseState[lessonId]) {
+                AppState.exerciseState[lessonId] = {
+                    selectedAnswers: Array(questions.length).fill(null),
+                    submitted: false
+                };
+            }
+
+            let state = AppState.exerciseState[lessonId];
+            const score = questions.filter((q, i) => state.selectedAnswers[i] === q.correctAnswerIndex).length;
+            const isComplete = state.selectedAnswers.every(a => a !== null);
+            
+            const handleSelect = (qIndex, aIndex) => {
+                if (state.submitted) return;
+                state.selectedAnswers[qIndex] = aIndex;
+                renderExercise(lesson); 
+            };
+
+            const handleSubmit = () => {
+                state.submitted = true;
+                renderExercise(lesson);
+                document.getElementById('exercise-results')?.scrollIntoView({ behavior: 'smooth' });
+            };
+
+            const handleReset = () => {
+                state.submitted = false;
+                state.selectedAnswers = Array(questions.length).fill(null);
+                renderExercise(lesson); 
+            };
+
+            const scoreDisplay = state.submitted ? `
+                <div id="exercise-results" class="p-4 mb-6 bg-orange-100 border-l-4 border-orange-500 text-orange-900 font-bold text-lg rounded-md">
+                    Analysis Result: ${score}/${questions.length}. Leverage (*Alavanca*) is key to the **Grapple**!
+                </div>
+            ` : '';
+
+            const questionMarkup = questions.map((q, qIndex) => {
+                const optionsMarkup = q.options.map((option, aIndex) => {
+                    let optionClasses = '';
+                    let prefix = '';
+                    const isSelected = state.selectedAnswers[qIndex] === aIndex;
+                    const isCorrect = q.correctAnswerIndex === aIndex;
+                    
+                    if (!state.submitted) {
+                        optionClasses = isSelected ? 'option-active' : 'hover:bg-stone-200 cursor-pointer';
+                    } else {
+                        if (isCorrect) {
+                            optionClasses = 'bg-green-100 border-green-500 font-bold';
+                            prefix = '✅ ';
+                        } else if (isSelected) {
+                            optionClasses = 'bg-red-100 border-red-500 font-bold opacity-70';
+                            prefix = '❌ ';
+                        } else {
+                            optionClasses = 'bg-gray-100 opacity-50';
+                        }
+                    }
+
+                    return `
+                        <div 
+                            class="p-3 border rounded-lg transition duration-200 text-sm option-select ${optionClasses}"
+                            data-qindex="${qIndex}" 
+                            data-aindex="${aIndex}"
+                            ${state.submitted ? 'style="pointer-events: none;"' : ''}
+                        >
+                            ${prefix}${option}
+                        </div>
+                    `;
+                }).join('');
+
+                const explanationMarkup = state.submitted ? `
+                    <div class="mt-3 text-sm p-3 bg-stone-100 border-l-2 border-orange-500 rounded-br-lg rounded-bl-lg">
+                        <p class="font-bold text-orange-700">Grapple Insight (*Lição da Luta*):</p>
+                        <p class="text-gray-600">${q.explanation}</p>
+                    </div>
+                ` : '';
+
+                return `
+                    <div class="mb-8 p-4 border border-gray-200 rounded-lg bg-white shadow-sm">
+                        <p class="font-semibold mb-3 text-lg text-gray-800">
+                            ${qIndex + 1}. ${q.text}
+                        </p>
+                        <div class="space-y-2">
+                            ${optionsMarkup}
+                        </div>
+                        ${explanationMarkup}
+                    </div>
+                `;
+            }).join('');
+            
+            const buttonMarkup = !state.submitted ? `
+                <button
+                    id="submit-quiz-btn"
+                    class="w-full bg-stone-700 text-white font-bold py-3 rounded-lg hover:bg-stone-800 transition duration-300 ${!isComplete ? 'disabled:bg-gray-400 disabled:cursor-not-allowed' : 'shadow-md'}"
+                    ${!isComplete ? 'disabled' : ''}
+                >
+                    Verify Grapple Skills
+                </button>
+            ` : `
+                <button
+                    id="reset-quiz-btn"
+                    class="w-full bg-orange-500 text-white font-bold py-3 rounded-lg hover:bg-orange-600 transition duration-300 shadow-md"
+                >
+                    Re-Evaluate Fight
+                </button>
+            `;
+
+            container.innerHTML = `
+                <div class="mt-8 p-6 bg-white rounded-xl shadow-lg border-t-4 border-stone-400">
+                    <h3 class="text-3xl font-extrabold text-gray-700 mb-6 border-b pb-2">
+                        Test Your Technique 🥋
+                    </h3>
+                    ${scoreDisplay}
+                    ${questionMarkup}
+                    ${buttonMarkup}
+                </div>
+            `;
+
+            document.querySelectorAll('.option-select').forEach(optionDiv => {
+                optionDiv.addEventListener('click', (e) => {
+                    const qIndex = parseInt(optionDiv.getAttribute('data-qindex'));
+                    const aIndex = parseInt(optionDiv.getAttribute('data-aindex'));
+                    handleSelect(qIndex, aIndex);
+                });
+            });
+
+            if (document.getElementById('submit-quiz-btn')) {
+                document.getElementById('submit-quiz-btn').addEventListener('click', handleSubmit);
+            }
+            if (document.getElementById('reset-quiz-btn')) {
+                document.getElementById('reset-quiz-btn').addEventListener('click', handleReset);
+            }
+        };
+
+        // --- 4. NAVIGATION & INIT ---
+
+        const navigateTo = (id) => {
+            AppState.currentPageId = id;
+            window.scrollTo(0, 0);
+
+            if (id === null) {
+                renderHome();
+            } else {
+                const lesson = lessons.find(l => l.id === id);
+                if (lesson) {
+                    renderLessonDetail(lesson);
+                } else {
+                    appContent.innerHTML = `<div class="text-center p-12 text-red-500 text-xl">Module not found.</div>`;
+                }
+            }
+        };
+
+        window.onload = () => {
+            document.getElementById('home-link-header').addEventListener('click', () => navigateTo(null));
+            document.getElementById('home-link-nav').addEventListener('click', () => navigateTo(null));
+            navigateTo(null);
+        };
+    </script>
+</body>
+</html>
